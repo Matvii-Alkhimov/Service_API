@@ -1,0 +1,7 @@
+{{#each this}}
+        <form id="createPostForm" data-type="form-edit">
+        <input type="text" id="titleInput" placeholder="Заголовок" required value="{{title}}">
+        <textarea id="contentInput" placeholder="Зміст" required>{{description}}</textarea>
+        <button type="submit" data-type="btn-edit-fin">Змінити пост</button>
+    </form>
+{{/each}}

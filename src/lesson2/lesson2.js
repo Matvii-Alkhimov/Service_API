@@ -7,8 +7,8 @@ const elements = {
     galleryEl: document.querySelector(".gallery"),
     loadMoreBtn: document.querySelector(".load-more-button"),
     resetBtn: document.querySelector(".reset-button"),
-    // backdropEl: document.querySelector(".backdrop"),
-    // modalEl: document.querySelector(".modal"),
+    backdropEl: document.querySelector(".backdrop"),
+    modalEl: document.querySelector(".modal"),
 }
 
 const galleryApi = new GalleryApi();
@@ -55,17 +55,17 @@ function toggleButtonsAttribute() {
     elements.loadMoreBtn.toggleAttribute("disabled");
 }
 
-// elements.galleryEl.addEventListener("click", onPictureInfoBtnClick)
+elements.galleryEl.addEventListener("click", onPictureInfoBtnClick)
 
-// function onPictureInfoBtnClick(event) {
-//     if (event.target.nodeName !== "BUTTON") {
-//         return
-//     }
+function onPictureInfoBtnClick(event) {
+    if (event.target.nodeName !== "BUTTON") {
+        return
+    }
 
-//     elements.backdropEl.classList.remove("is-hidden")
+    elements.backdropEl.classList.remove("is-hidden")
 
-// }
+}
 
-// fetch('https://pixabay.com/api/?key=39207262-6adfeb1da7a3c9c20c6715f96&id=736885')
-// .then((img)=> img.json())
-// .then((res)=> console.log(res))
+fetch('https://pixabay.com/api/?key=39207262-6adfeb1da7a3c9c20c6715f96&id=736885')
+.then((img)=> img.json())
+.then((res)=> console.log(res))

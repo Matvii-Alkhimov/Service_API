@@ -1,0 +1,240 @@
+body {
+    background-color: pink;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 60px;
+}
+
+/* Post Container */
+
+#postsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 470px);
+    grid-template-rows: minmax(500px, 612px);
+    gap: 45px;
+}
+
+#createPostForm,
+.post {
+    background-color: white;
+    border: 2px black solid;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-cont,
+.post {
+    box-shadow: 0px 0px 8px black;
+}
+
+#createPostForm {
+    border: none;
+}
+
+.form-cont {
+    border: 2px black solid;
+}
+
+/* Post Form */
+
+#titleInput,
+#contentInput {
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px black solid;
+    transition: all 250ms linear;
+    margin-bottom: 20px;
+}
+
+#titleInput {
+    width: 80%;
+    font-size: 20px;
+}
+
+#contentInput {
+    width: 90%;
+    height: 80%;
+    min-height: 450px;
+    resize: none;
+}
+
+#createPostForm > button {
+    padding: 10px;
+    width: 40%;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 250ms linear;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#contentInput:focus,
+#titleInput:focus,
+#createPostForm > button:hover,
+#createPostForm > button:focus {
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+/* Post */
+
+.post {
+    text-align: center;
+}
+
+.post > h2,
+.post > p {
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+}
+
+.post > p {
+    width: 90%;
+    overflow: auto;
+    max-height: 400px;
+    border: 2px black solid;
+    padding: 10px;
+}
+
+.post-param-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.editPostButton,
+.deletePostButton,
+.commentsPostButton {
+    box-sizing: content-box;
+    padding: 10px;
+    width: 32px;
+    height: 32px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 250ms 250ms linear;
+    border: none;
+}
+
+.commentsPostButton {
+    width: 100px;
+    font-size: 20px;
+}
+
+.svg-btn {
+    width: 100%;
+    height: 100%;
+    transition: all 250ms 250ms linear;
+}
+
+.editPostButton:hover,
+.deletePostButton:hover {
+    rotate: 225deg;
+    box-shadow: 0px 0px 8px black;
+}
+
+.editPostButton:hover > svg,
+.deletePostButton:hover > svg {
+    rotate: -225deg;
+}
+
+.commentsPostButton:hover {
+    box-shadow: 0px 0px 8px black;
+}
+
+/* Comments */
+
+.commentsContainer {
+    position: relative;
+    height: 100%;
+}
+
+.comments-list {
+    list-style: none;
+    text-align: left;
+    height: 80%;
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: 0;
+    border-top: 2px black solid;
+}
+
+.comment-item {
+    font-size: 20px;
+    width: max-content;
+    background-color:  rgb(210, 208, 208);
+    border-radius: 35px;
+    padding: 5px 15px;
+}
+
+.comment-item:not(:last-of-type) {
+    margin-bottom: 5px;
+}
+
+.createCommentForm {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    position: absolute;
+    bottom: -20px;
+    padding: 0;
+    border-top: 2px black solid;
+}
+
+.createCommentForm > input,
+.createCommentForm > button {
+    height: 100%;
+    padding: 0;
+    border: none;
+}
+
+.createCommentForm > input {
+    outline: none;
+    width: 85%;
+    font-size: 20px;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+
+.createCommentForm > button {
+    width: 15%;
+    border-left: 2px black solid;
+    cursor: pointer;
+}
+
+.send-comment__svg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.exit-comments-btn {
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background-color: white;
+    transition: all 250ms linear;
+    cursor: pointer;
+}
+
+.exit-comments-btn:hover {
+    rotate: 270deg;
+    box-shadow: 0px 0px 8px black;
+}
+
+.exit-btn__svg {
+    width: 100%;
+    height: 100%;
+}
