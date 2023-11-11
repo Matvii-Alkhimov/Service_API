@@ -2,8 +2,6 @@ import postTpl from "../templates/post.handlebars";
 import changePostTpl from "../templates/change-post.handlebars";
 import postCommentsTpl from "../templates/post-comments.handlebars";
 import { nanoid } from 'nanoid';
-import { Axios } from "axios";
-
 
 const elements = {
     createPostFormEl: document.querySelector("#createPostForm"),
@@ -84,7 +82,6 @@ async function deletePost(event) {
         headers: {
             'Content-Type': 'application/json'
         },
-        // body: JSON.stringify(update)
     }
 
     try {
@@ -162,6 +159,23 @@ async function createComment(event) {
     }
 }
 
+async function closeCommentsCont(event) {
+    try {
+        const commentsContEl = document.querySelector(".commentsContainer");
+        const postToChange = commentsContEl.parentNode;
+        const postId = postToChange.dataset.id;
+
+        const postInfo = await fetch(`${BASE_URL}/posts/${postId}`);
+        const parsedPostInfo = await postInfo.json();
+
+        // postToChange.innerHTML = ;
+        postToChange.insertAdjacentHTML("afterend", postTpl([parsedPostInfo]));
+        postToChange.remove()
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 function renderPosts(posts) {
     const markup = postTpl(posts);
     elements.postContainerEl.insertAdjacentHTML("beforeend", markup);
@@ -178,7 +192,9 @@ function onWindowClick(event) {
         deletePost(event);
     } else if (event.target.dataset.type === "btn-comment") {
         onCommentsBtnClick(event);
-    } 
+    } else if (event.target.dataset.type === "close-comments-btn") {
+        closeCommentsCont(event);
+    }
 }
 async function startApp() {
     const posts = await getPosts();
